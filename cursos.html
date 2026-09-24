@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medicoaching Banner</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 500;
+    }
+
+    .nav-button a {
+      padding: 0.5rem 1rem;
+      background-color: #1e40af;
+      align-items: center;
+      color: white;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .banner {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .seccion-aprendizaje {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 2rem;
+      background-color: #ffffff;
+    }
+
+    .contenido-aprendizaje {
+      flex: 1 1 500px;
+      max-width: 600px;
+    }
+
+    .contenido-aprendizaje h2 {
+      font-size: 3rem;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+
+    .contenido-aprendizaje p {
+      font-size: 1rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .descripcion-extra {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lista-aprendizaje {
+      list-style: none;
+      padding: 0;
+    }
+
+    .lista-aprendizaje li {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: #1e293b;
+    }
+
+    .imagen-aprendizaje {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+
+    .imagen-aprendizaje img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .modulos-destacados {
+      padding: 3rem 2rem;
+      background-color: #f8fafc;
+      text-align: center;
+    }
+
+    .modulos-destacados h2 {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      color: #1e293b;
+    }
+
+    .fila {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .fila-superior {
+      justify-content: center;
+    }
+     .fila-superior2 {
+      justify-content: center;
+    }
+
+    .fila-inferior {
+      justify-content: center;
+    }
+
+    .card-curso {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+      width: 280px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .modulos-destacados2 {
+      padding: 3rem 2rem;
+      background-color: #f8fafc;
+      text-align: center;
+    }
+      .card-curso2 {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+      width: 280px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .card-curso2:hover {
+      transform: scale(1.05);
+    }
+
+    .card-curso2 img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-curso2 h3 {
+      font-size: 1.1rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-curso2 p {
+      font-weight: bold;
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-curso2 button {
+      background-color: #1e40af;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+
+    .modulos-destacados3 {
+      padding: 3rem 2rem;
+      background-color: #f8fafc;
+      text-align: center;
+    }
+      .card-curso3 {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+      width: 280px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .card-curso3:hover {
+      transform: scale(1.05);
+    }
+
+    .card-curso3 img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-curso3 h3 {
+      font-size: 1.1rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-curso3 p {
+      font-weight: bold;
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-curso3 button {
+      background-color: #1e40af;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+ 
+
+    .card-curso:hover {
+      transform: scale(1.05);
+    }
+
+    .card-curso img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-curso h3 {
+      font-size: 1.1rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-curso p {
+      font-weight: bold;
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-curso button {
+      background-color: #1e40af;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #222;
+      color: #e5e7eb;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-top: 1px solid #444;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ff6b6b;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">
+      <img src="img/logo.jpeg" alt="Logo Medicoaching">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>
+    <div class="nav-button">
+      <a href="acomprar.html">Adquiera su servicio</a>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <img src="img/banerCursos.png" alt="Banner Medicoaching" class="banner-img">
+  </div>
+
+  <section class="seccion-aprendizaje">
+    <div class="contenido-aprendizaje">
+      <h2>Optimiza Tu Aprendizaje</h2>
+      <p>Accede a artículos, videos y herramientas interactivas para complementar tu formación médica. ¡Aprende de manera efectiva y a tu propio ritmo!</p>
+      <p class="descripcion-extra">Encuentra casos clínicos, simulaciones y material de estudio actualizado para mejorar tu comprensión y habilidades en medicina.</p>
+      <ul class="lista-aprendizaje">
+        <li><strong>🩺 Casos Clínicos</strong><br>Analiza casos clínicos reales y mejora tus habilidades de diagnóstico.</li>
+        <li><strong>🧪 Simulaciones Interactivas</strong><br>Participa en simulaciones de situaciones médicas y practica tus habilidades en un entorno seguro.</li>
+        <li><strong>📚 Biblioteca de Recursos</strong><br>Accede a una amplia biblioteca de artículos, libros y videos sobre medicina.</li>
+      </ul>
+    </div>
+    <div class="imagen-aprendizaje">
+      <img src="img/pr2.jpeg" alt="Imagen de aprendizaje médico">
+    </div>
+  </section>
+
+  <section class="modulos-destacados2">
+    <h2>Nuestros cursos sobre la lengua de señas</h2>
+    <div class="fila fila-superior2">
+    <div class="card-curso2">
+        <img src="img/len3.jpeg" alt="Farmacología General">
+        <h3>Lengua de señas en español(LESSA)</h3>
+        <p>$15.00</p>
+        <a href="acomprar.html"><button>Inscribirse</button></a>
+      </div>
+      <div class="card-curso3">
+        <img src="img/len3.jpeg" alt="Farmacología General">
+        <h3>Lengua de señas inglés(ASL)</h3>
+        <p>$20.00</p>
+        <a href="acomprar.html"><button>Inscribirse</button></a>
+      </div>
+  </section>
+
+  <section class="modulos-destacados">
+    <h2>Cursos Médicos que ofreceremos</h2>
+    <div class="fila fila-superior">
+      <div class="card-curso">
+        <img src="img/anat1 (2).jpeg" alt="Anatomía Humana Interactiva">
+        <h3>Terminología en inglés de anatomía</h3>
+
+        <a href="anatomia.html"><button>¡Conoce más!</button></a>
+      </div>
+      <div class="card-curso">
+        <img src="img/far1 (3).jpeg" alt="Fisiología Cardiovascular">
+        <h3>Terminología en inglés de farmacología</h3>
+
+        <a href="farma.html"><button>Conoce más!</button></a>
+      </div>
+      <div class="card-curso">
+        <img src="img/modm3.jpeg" alt="Bioquímica Metabólica">
+        <h3>Terminología en inglés de Medicina General</h3>
+
+        <a href="medicinaGener.html"><button>¡Conoce más!</button></a>
+      </div>
+      <br><br>
+    </div>
+    <div class="fila fila-inferior">
+      <div class="card-curso">
+        <img src="img/modm2.jpeg" alt="Inmunología Clínica">
+        <h3>Inglés básico</h3>
+
+        <a href="gratis.html"><button>¡Conoce más!</button></a>
+      
+    </div>
+  </section>
+  <
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <h2>Cursos Destacados en el Área del Francés</h2>
+  </div>
+  <div class="fila">
+    <div class="card-curso">
+      <img src="img/principa1.jpeg" alt="Módulo Medicina General Nivel Básico">
+      <h3>Module de terminologie technique en médecine générale</h3>
+      <a href="médicine.html"><button>¡Conoce más!</button></a>
+    </div>
+    <div class="card-curso">
+      <img src="img/principa2.jpeg" alt="Módulo Medicina General Nivel Intermedio">
+      <h3>Module de terminologie technique en pharmacologie médicale</h3>
+      <a href="termi_que.html"><button>¡Conoce más!</button></a>
+    </div>
+    <div class="card-curso">
+      <img src="img/principa3.jpeg" alt="Módulo Anatomía Médica">
+      <h3>Módulo de Anatomie Médicale</h3>
+      <br><br>
+     <a href="anatomie.html"><button>¡Conoce más!</button></a>
+    </div>
+  </div>
+  <br><br><br>
+<footer>
+  <div class="footer-container">
+    
+    <!-- Información institucional de Medicoaching -->
+    <p>
+      Mediocoaching. Plataforma educativa para estudiantes de medicina.<br>
+      San Salvador, El Salvador, América Central. <br>
+      Todos los derechos reservados.
+    </p>
+
+    <!-- Año actual o copyright -->
+    <p>© 2025</p>
+
+    <!-- Línea de crédito o autor del sitio -->
+    <p>Un proyecto académico de <strong>Mediocoaching</strong></p>
+
+    <!-- Íconos de redes sociales (Instagram y Facebook) -->
+    <div class="social-icons">
+
+      <!-- Enlace a Instagram -->
+      <a href="https://www.instagram.com/medicoaching_?igsh=eGw0dmx6c2ZpZTN3" target="_blank" aria-label="Instagram">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+          <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124.71-41a54,54,0,0,0-30.6-30.6C296.78,124,224,124,224,124s-72.78,0-94.11,6.41a54,54,0,0,0-30.6,30.6C93,145.22,93,224,93,224s0,78.78,6.41,100.11a54,54,0,0,0,30.6,30.6C151.22,356,224,356,224,356s72.78,0,94.11-6.41a54,54,0,0,0,30.6-30.6C355,302.78,355,224,355,224S355,145.22,348.71,161ZM224,293a69,69,0,1,1,69-69A69,69,0,0,1,224,293Zm74-125a16,16,0,1,1,16-16A16,16,0,0,1,298,168Z"/>
+        </svg>
+      </a>
+
+      <!-- Enlace a Facebook -->
+      <a href="https://www.facebook.com/p/Medicoaching-61558492209594/?ref=xav_pl_fb_external_link_android&wtsid=rdr_0MBSfcFRv2QpUey88#" target="_blank" aria-label="Facebook">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 320 512">
+          <path d="M279.14 288l14.22-92.66h-88.91V138.38c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.35 0 265.36 0c-73.61 0-121.36 44.38-121.36 124.72v70.62H97.66V288h46.34v224h92.66V288z"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

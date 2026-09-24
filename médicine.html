@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>farmacología</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 500;
+    }
+
+    .nav-button a {
+      padding: 0.5rem 1rem;
+      background-color: #1e40af;
+      color: white;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    header {
+      background-color: #0f172a;
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modulo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #334155;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul {
+      padding-left: 1.25rem;
+      color: #334155;
+      font-size: 0.9rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .precio-paquete {
+  background-color: #ffffff;
+  color: #0f172a;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 3rem auto;
+  max-width: 600px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+
+    .resources-section {
+      text-align: center;
+      padding: 2rem;
+      background-color: #e2e8f0;
+    }
+
+    .resources-section h2 {
+      color: #1e293b;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .resource-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1.25rem;
+      background-color: #1e40af;
+      color: #ffffff;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .resources-section audio {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #222;
+      color: #e5e7eb;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-top: 1px solid #444;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ff6b6b;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">
+      <img src="img/logo.jpeg" height="78" width="78" alt="Medicoaching Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="nosotros.html">Sobre nosotros</a>
+    </div>
+    <div class="nav-button">
+      <a href="acomprar.html">Adquiera su servicio</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Module de terminologie technique en médecine générale</h1>
+    <p>Aprende a comprender y usar el vocabulario que los médicos y pacientes utilizan en consultas generales, historiales clínicos y descripciones de síntomas. No es un curso de medicina, sino un curso para entender cómo se habla de salud en francés.</p>
+  </header>
+
+  <div class="modulo-grid">
+    <div class="card">
+      <img src="img/med1.jpeg" alt="Nivel Básico Médecine Générale">
+      <h2>🩺 Nivel 1: Básico (Débutant)</h2>
+      <p><b>Objetivo:</b> Aprender las frases más comunes de una consulta médica en francés y los síntomas generales.</p>
+      <ul>
+        <li>Saludos y preguntas básicas del médico: Bonjour, qu’est-ce qui vous amène ?</li>
+        <li>Síntomas frecuentes: fièvre, toux, maux de tête, fatigue</li>
+        <li>Partes del cuerpo más mencionadas: la gorge, le ventre, les oreilles</li>
+        <li>Preguntas del paciente: Est-ce que c’est grave ?, Je dois prendre un médicament ?</li>
+        <li>Vocabulario para signos vitales: température, tension, fréquence cardiaque</li>
+        <li>Frases sobre enfermedades comunes: J’ai un rhume, J’ai mal au dos</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="img/med2.jpeg" alt="Nivel Intermedio Médecine Générale">
+      <h2>⚕️ Nivel 2: Intermedio (Intermédiaire)</h2>
+      <p><b>Objetivo:</b> Comprender diálogos médicos completos y usar lenguaje más técnico.</p>
+      <ul>
+        <li>Frases del interrogatorio clínico: Avez-vous des antécédents médicaux ?</li>
+        <li>Condiciones comunes: hypertension, diabète, grippe, infection urinaire, allergie</li>
+        <li>Instrucciones médicas: Buvez beaucoup d’eau, restez au repos</li>
+        <li>Lenguaje de examen físico: Je vais écouter vos poumons</li>
+        <li>Descripciones breves de diagnósticos</li>
+        <li>Errores comunes de comprensión</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="img/med3.jpeg" alt="Nivel Avanzado Médecine Générale">
+      <h2>🧠 Nivel 3: Avanzado (Avancé)</h2>
+      <p><b>Objetivo:</b> Entender y usar lenguaje técnico en descripciones clínicas más formales y detalladas.</p>
+      <ul>
+        <li>Leer un informe médico: Diagnostic: bronchite aiguë. Traitement: amoxicilline</li>
+        <li>Redacción de notas clínicas simples</li>
+        <li>Síntomas complejos: fièvre persistante, douleurs thoraciques</li>
+        <li>Frases para entrega de resultados y seguimiento</li>
+        <li>Interpretación de signos y síntomas</li>
+        <li>Términos técnicos comunes en recetas</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="resources-section">
+    <h2>Recursos del Nivel Básico</h2>
+    <audio controls>
+      <source src="audios/audio6.ogg" type="audio/ogg">
+      Tu navegador no soporta la reproducción de audio.
+    </audio>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p>Mediocoaching. Plataforma educativa para estudiantes de medicina.<br>San Salvador, El Salvador, América Central.<br>Todos los derechos reservados.</p>
+      <p>© 2025</p>
+      <p>Un proyecto académico de <strong>Mediocoaching</strong></p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/medicoaching_?igsh=eGw0dmx6c2ZpZTN3" target="_blank" aria-label="Instagram">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512"><path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124.71-41a54,54,0,0,0-30.6-30.6C296.78,124,224,124,224,124s-72.78,0-94.11,6.41a54,54,0,0,0-30.6,30.6C93,145.22,93,224,93,224s0,78.78,6.41,100.11a54,54,0,0,0,30.6,30.6C151.22,356,224,356,224,356s72.78,0,94.11-6.41a54,54,0,0,0,30.6-30.6C355,302.78,355,224,355,224S355,145.22,348.71,161ZM224,293a69,69,0,1,1,69-69A69,69,0,0,1,224,293Zm74-125a16,16,0,1,1,16-16A16,16,0,0,1,298,168Z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Medicoaching-61558492209594" target="_blank" aria-label="Facebook">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91V138.38c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.35 0 265.36 0c-73.61 0-121.36 44.38-121.36 124.72v70.62H97.66V288h46.34v224h92.66V288z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

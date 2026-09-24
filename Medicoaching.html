@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #0f172a;
+}
+
+.navbar {
+        width: 100%;
+        padding: 0.75rem 2rem; 
+        border-bottom: 1px solid #e5e7eb;
+        position: fixed; 
+        top: 0;
+        background: white;
+        z-index: 100; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+       
+    }
+
+.navbar-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.contact-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.contact-button {
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 0.3rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #f9fafb;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  color: #334155;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+.hero-image img {
+  width: 570px;       /* Tamaño aproximado al de tu imagen */
+  height: 430px;      /* Altura fija para que se mantenga igual */
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.benefits {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f9fafb;
+}
+
+.benefits h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.benefits-subtitle {
+  color: #475569;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.benefit-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.benefit-card {
+  width: 300px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.benefit-card .icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.benefit-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.benefit-card p {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+}
+.testimonials {
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(to right, #fff 0%, #f8fafc 100%);
+  position: relative;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+}
+
+.testimonial-card {
+  background-color: #f1f5f9;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 320px;
+  padding: 1rem;
+  flex-shrink: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.testimonial-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-content {
+  text-align: left;
+}
+
+.testimonial-content strong {
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.testimonial-content .role {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-content p {
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.cursos-destacados {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+}
+
+.cursos-destacados h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cursos-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrado horizontal */
+  gap: 2rem;               /* Espacio entre tarjetas */
+  padding: 2rem;
+}
+
+.cursos-destacados2 {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+}
+.cursos-scroll2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrado horizontal */
+  gap: 2rem;               /* Espacio entre tarjetas */
+  padding: 2rem;
+}
+
+.curso-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 280px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+
+.curso-card img {
+  width: 250px;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  height: 250px;
+  object-fit: cover;
+}
+
+.curso-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.precio {
+  font-size: 1rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.curso-card button {
+  background-color: white;
+  border: 1px solid #0f172a;
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.curso-card button:hover {
+  background-color: #f1f5f9;
+}
+
+
+
+footer {
+  background-color: #222; /* Fondo oscuro, similar al de UES */
+  color: #e5e7eb; /* Color de texto claro */
+  padding: 30px 20px; /* Espaciado interior */
+  text-align: center;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  line-height: 1.6;  /* Separación entre líneas para mejor legibilidad */
+  border-top: 1px solid #444; /* Línea superior sutil como división */
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espacio entre elementos */
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px; /* Separación entre los íconos */
+}
+
+/* Estilo de los íconos SVG */
+.social-icons a {
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animación cuando pasas el mouse sobre un ícono */
+.social-icons a:hover {
+  color: #ff6b6b; /* Color rojo coral al pasar el mouse */
+  transform: scale(1.2); /* Efecto de aumento */
+}
+
+
+
+	</style>
+</head>
+<body>
+   <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-content">
+      <!-- Logo -->
+      <div class="logo">
+        <!-- Reemplaza "logo.png" con tu archivo -->
+
+        <!--<img src="img/1_1.jpeg" alt="Ser Proactivo">-->
+        <img src="img/logo.jpeg" height="78" width="78">
+      </div>
+
+      <!-- Menú de navegación -->
+      <nav class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="nosotros.html">Nosotros</a>
+      </nav>
+
+      <!-- Botón Contáctenos -->
+      <div class="contact-button-container">
+        <a href="acomprar.html"><button class="contact-button">Nuestro servicio →</button></a>
+      </div>
+    </div>
+  </header>
+  <br><br>
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Impulsa tu Futuro en<br>Medicina con<br>Medicoaching</h1>
+      <p>
+        <strong>Medicoaching:</strong> Plataforma educativa con herramientas interactivas
+        diseñadas para estudiantes de medicina. ¡Aprende a tu propio ritmo!
+      </p>
+      <a href="cursos.html" class="cta-button">Descubre Nuestros Cursos →</a>
+    </div>
+
+    <div class="hero-image">
+      <!-- Reemplaza "imagen-principal.png" con tu imagen -->
+      <img src="img/dc3.png">
+    </div>
+  </section>
+  <section class="benefits">
+  <h2>Beneficios Clave de Medicoaching</h2>
+  <p class="benefits-subtitle">
+    Aprovecha al máximo tu potencial con nuestra plataforma educativa.
+  </p>
+
+  <div class="benefit-cards">
+    <div class="benefit-card">
+      <div class="icon">🎓</div>
+      <h3>Aprendizaje Personalizado</h3>
+      <p>Adapta tu estudio a tus necesidades y ritmo individual. ¡Gestiona tu propio desarrollo académico!</p>
+    </div>
+
+    <div class="benefit-card">
+      <div class="icon">💻</div>
+      <h3>Herramientas Interactivas</h3>
+      <p>Accede a recursos educativos innovadores que facilitan la comprensión y retención de conocimientos.</p>
+    </div>
+
+    <div class="benefit-card">
+      <div class="icon">👥</div>
+      <h3>Comunidad de Estudiantes</h3>
+      <p>Conéctate con otros estudiantes de medicina, comparte experiencias y colabora en proyectos.</p>
+    </div>
+  </div>
+<br><br><br><br>
+ <h2>Voces que inspiraron este proyecto</h2> 
+ <br><br><br>
+<div class="testimonials-container">
+  <div class="testimonials-track" id="track">
+  
+
+    <!-- Testimonio 1 -->
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <p>«La comprensión de términos como ‘metástasis’ y ‘angiogénesis’ es difícil si 
+no sabes que están conectados, pero no significan lo mismo. Esto debería 
+explicarse de forma más sencilla»</p>
+      </div>
+    </div>
+
+    <!-- Testimonio 2 -->
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <p>«El problema no es solo aprender inglés, es aprender el vocabulario médico 
+específico. Eso es lo que de verdad me interesa» </p>
+      </div>
+    </div>
+
+    <!-- Testimonio 3 -->
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <p>«Ojalá existiera una herramienta para relacionar casos clínicos reales con el 
+vocabulario médico. Así uno aprende con más lógica» </p>
+      </div>
+    </div>
+
+    <!-- Testimonio 4 -->
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <p>«Me cuesta entender lo que los doctores dicen cuando hablan rápido en 
+inglés. Algo como una plataforma que explicara términos médicos en inglés 
+ayudaría muchísimo» </p>
+      </div>
+    </div>
+
+    <!-- Testimonio 5 -->
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <p>«Hay cursos muy caros y poco prácticos. No todo el mundo puede pagar 
+tanto por contenido que no siempre enseña lo que promete» </p>
+      </div>
+    </div>
+
+    <!-- Testimonio 6 -->
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <p>«Lo que más necesito es poder diferenciar y recordar los términos. Algunos 
+se parecen tanto que me confundo» </p>
+      </div>
+    </div>
+
+    <!-- Testimonio 7 -->
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <p>«Muchos cursos enseñan inglés, pero no el inglés que se necesita en salud. 
+Eso es lo que de verdad hace falta» </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cursos-destacados2">
+  <h2>Nuestros Cursos Destacados</h2>
+
+    <div class="cursos-scroll2">
+   <div class="curso-card">
+      <img src="img/dc1.png" alt="Bioquímica Clínica Avanzada">
+      <h3>MÓDULO DE LENGUA DE SEÑAS(LESSA) – BÁSICA EN ESPAÑOL</h3>
+      <p class="precio">$15.00</p>
+      <nav>
+       <a href="lengua.html"><button>Ver más</button></a> 
+      </nav>
+    </div>
+
+    <div class="curso-card">
+      <img src="img/asl.jpg" alt="Bioquímica Clínica Avanzada">
+      <h3>American Sing Lenguage(ASL) - Lengua de señas en inglés</h3>
+      <p class="precio">$20.00</p>
+      <nav>
+       <a href="lengua.html"><button>Ver más</button></a> 
+      </nav>
+    </div>
+
+</section>
+
+
+<br><br><br>
+<section class="cursos-destacados">
+  <h2>Para en un futuro...</h2>
+
+  <div class="cursos-scroll">
+
+    <div class="curso-card">
+      <img src="img/dc6.png" alt="Anatomía Humana Interactiva">
+      <h3>MÓDULO DE ANATOMÍA MÉDICA</h3>
+      <p class="precio">$40.00</p>
+      <nav>
+      <a href="anatomia.html"><button>Ver más</button></a>
+      </nav>
+    </div>
+
+    <div class="curso-card">
+      <img src="img/dc4.png" alt="Fisiología para Estudiantes de Medicina">
+      <h3>MÓDULO DE MEDICINA GENERAL EN INGLÉS</h3>
+      <p class="precio">$40.00</p>
+      <nav>
+      <a href="medicinaGener.html"><button>Ver más</button></a>
+      </nav>
+    </div>
+
+    <div class="curso-card">
+      <img src="img/dc5.png" alt="Bioquímica Clínica Avanzada">
+      <h3>MÓDULO DE FARMACOLOGÍA MÉDICA EN INGLÉS</h3>
+      <p class="precio">$40.00</p>
+      <nav>
+      <a href="farma.html"><button>Ver más</button></a>
+      </nav>
+      
+    </div>
+    <div class="curso-card">
+      <img src="img/dc2.png" alt="Bioquímica Clínica Avanzada">
+      <h3>MÓDULO DE INGLÉS BÁSICO (GRATUITO) </h3>
+      <br>
+      <p class="precio">$40.00</p>
+      
+      <nav>
+      <a href="gratis.html"><button>Ver más</button></a>
+      </nav>
+    </div>
+
+  </div>
+</section>
+<br><br><br>
+<!-- Cursos adicionales: Medicina General en Francés -->
+<h2>Nuestros Cursos Destacados en el Área del Francés</h2>
+<div class="cursos-scroll">
+  <div class="curso-card">
+    <img src="img/principa1.jpeg" alt="Módulo Medicina General Nivel Básico">
+    <h3>Module de terminologie technique en médecine
+générale </h3>
+    <p class="precio">$40.00</p>
+    <nav>
+      <a href="médicine.html"><button>Ver más</button></a>
+    </nav>
+  </div>
+
+  <div class="curso-card">
+    <img src="img/principa2.jpeg" alt="Módulo Medicina General Nivel Intermedio">
+    <h3>Module de terminologie technique en pharmacologie
+médicale</h3>
+    <p class="precio">$40.00</p>
+    <nav>
+      <a href="termi_que.html"><button>Ver más</button></a>
+    </nav>
+  </div>
+
+  <div class="curso-card">
+    <img src="img/principa3.jpeg" alt="Módulo Medicina General Nivel Avanzado">
+    <h3>Módulo de Anatomie Médicale</h3>
+    <br>  
+    <p class="precio">$40.00</p>
+    <nav>
+      <a href="anatomie.html"><button>Ver más</button></a>
+    </nav>
+  </div>
+
+</div>
+<br>  
+<div style="margin-top: 40px; text-align: center; color: black;">
+    <h3>Después de este recorrido, prueba tu suerte:</h3>
+    <a href="ruleta.html" style="
+        display: inline-block;
+        margin-top: 15px;
+        background-color: #2a9d8f;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    ">Ir a la siguiente página</a>
+</div>
+<br><br>
+<footer>
+  <div class="footer-container">
+    
+    <!-- Información institucional de Medicoaching -->
+    <p>
+      Mediocoaching. Plataforma educativa para estudiantes de medicina.<br>
+      San Salvador, El Salvador, América Central. <br>
+      Todos los derechos reservados.
+    </p>
+
+    <!-- Año actual o copyright -->
+    <p>© 2025</p>
+
+    <!-- Línea de crédito o autor del sitio -->
+    <p>Un proyecto académico de <strong>Mediocoaching</strong></p>
+
+    <!-- Íconos de redes sociales (Instagram y Facebook) -->
+    <div class="social-icons">
+
+      <!-- Enlace a Instagram -->
+      <a href="https://www.instagram.com/medicoaching_?igsh=eGw0dmx6c2ZpZTN3" target="_blank" aria-label="Instagram">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+          <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124.71-41a54,54,0,0,0-30.6-30.6C296.78,124,224,124,224,124s-72.78,0-94.11,6.41a54,54,0,0,0-30.6,30.6C93,145.22,93,224,93,224s0,78.78,6.41,100.11a54,54,0,0,0,30.6,30.6C151.22,356,224,356,224,356s72.78,0,94.11-6.41a54,54,0,0,0,30.6-30.6C355,302.78,355,224,355,224S355,145.22,348.71,161ZM224,293a69,69,0,1,1,69-69A69,69,0,0,1,224,293Zm74-125a16,16,0,1,1,16-16A16,16,0,0,1,298,168Z"/>
+        </svg>
+      </a>
+
+      <!-- Enlace a Facebook -->
+      <a href="https://www.facebook.com/p/Medicoaching-61558492209594/?ref=xav_pl_fb_external_link_android&wtsid=rdr_0MBSfcFRv2QpUey88#" target="_blank" aria-label="Facebook">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 320 512">
+          <path d="M279.14 288l14.22-92.66h-88.91V138.38c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.35 0 265.36 0c-73.61 0-121.36 44.38-121.36 124.72v70.62H97.66V288h46.34v224h92.66V288z"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">const mainHeader = document.getElementById("main-header");
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        mainHeader.classList.add("hidden");
+    } else if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        mainHeader.classList.remove("hidden");
+    }
+
+    lastScrollY = currentScrollY;
+}); </script>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ruleta con Diseño CSS y Sincronización</title>
+<style type="text/css">
+    /* Reset básico */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+    
+    body{
+        font-family: 'Inter', sans-serif;
+        background-color: #f9fafb; 
+        color: #0f172a;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden; 
+        padding-top: 94px; 
+    }
+
+    /* --- ESTILOS DE BARRA DE NAVEGACIÓN (HEADER) --- */
+
+    .navbar {
+        width: 100%;
+        padding: 0.75rem 2rem; 
+        border-bottom: 1px solid #e5e7eb;
+        position: fixed; 
+        top: 0;
+        background: white;
+        z-index: 100; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transform: translateY(0); 
+    }
+
+    .navbar.hidden {
+        transform: translateY(-100%); 
+    }
+
+    .navbar-content {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+    }
+    
+    .logo img {
+        height: 78px; 
+        width: 78px; 
+        border-radius: 0; 
+        object-fit: contain; 
+        transition: none; 
+    }
+
+    .nav-middle {
+        flex-grow: 1; 
+        display: flex;
+        justify-content: center; 
+    }
+
+    .nav-links-inner { 
+        display: flex; 
+        gap: 2rem;
+    }
+    
+    .nav-links-inner a {
+        text-decoration: none;
+        color: #0f172a;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    
+    .nav-links-inner a:hover {
+        color: #007bff;
+    }
+
+    .contact-button {
+        background: white;
+        border: 1px solid #d1d5db;
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: #0f172a;
+    }
+
+    .contact-button:hover {
+        background-color: #f1f5f9;
+        border-color: #007bff;
+    }
+
+    /* --- ESTILOS DE LA RULETA (CONTENIDO PRINCIPAL) --- */
+
+    .main-content {
+        flex-grow: 1; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+        padding: 40px 20px;
+        width: 100%;
+        background-color: #1e3a50; 
+        min-height: 180vh; 
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3); 
+    }
+
+    .ruleta-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Aumento del padding para hacer el "cuadrado" más grande */
+        padding: 40px; 
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .container{
+        /* Ruleta más grande */
+        width: 580px; 
+        height: 580px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 20px solid #dde; 
+        position: relative;
+        overflow: hidden;
+        transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1); 
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); 
+    }
+    
+    @media (max-width: 768px) {
+        .container {
+            /* Mantenemos el tamaño responsivo, pero escalamos un poco */
+            width: 90vw;
+            height: 90vw;
+            max-width: 450px;
+            max-height: 450px;
+        }
+    }
+    
+    .container div{
+        height: 50%;
+        /* Ajuste de ancho de sector para el nuevo tamaño de ruleta */
+        width: 350px; 
+        position: absolute;
+        clip-path: polygon(100% 0, 50% 100%, 0 0); 
+        transform-origin: bottom center;
+        top: 0;
+        left: 50%;
+        /* Ajuste de margen para centrar el sector */
+        margin-left: -175px; 
+        text-align: center;
+        display: flex;
+        align-items: flex-start; 
+        justify-content: center;
+        font-size: 18px; /* Texto un poco más grande */
+        font-weight: bold;
+        color: white; 
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    .sector-label {
+        position: absolute;
+        top: 30%; 
+        width: 100%;
+        transform-origin: center center;
+        padding-top: 5px;
+        white-space: nowrap; 
+        font-size: 1.1rem; /* Texto de sector más grande */
+    }
+
+    .container .one{ background-color: #e9c46a; color: black; transform: rotate(0deg); }
+    .container .two{ background-color: #f4a261; color: black; transform: rotate(60deg); }
+    .container .three{ background-color: #e76f51; color: white; transform: rotate(120deg); } 
+    .container .four{ background-color: #2a9d8f; color: white; transform: rotate(180deg); }
+    .container .five{ background-color: #264653; color: white; transform: rotate(240deg); }
+    .container .six{ background-color: #a8dadc; color: black; transform: rotate(300deg); }
+
+    .arrow{
+        position: absolute;
+        top: -5%; 
+        left: 50%;
+        transform: translateX(-50%);
+        color: #e76f51; 
+        z-index: 20;
+    }
+
+    .arrow::before{
+        content: "\1F817"; 
+        font-size: 80px; /* Flecha un poco más grande */
+        filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    }
+
+    #spin{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 10;
+        background-color: #2a9d8f; 
+        text-transform: uppercase;
+        border: 4px solid #fff;
+        font-weight: 900; 
+        font-size: 20px; /* Texto del botón más grande */
+        color: #fff;
+        width: 150px; /* Botón más grande */
+        height: 150px; 
+        font-family: sans-serif;
+        border-radius: 50%;
+        cursor: pointer;
+        outline: none;
+        letter-spacing: 1px;
+        transition: background-color 0.3s, transform 0.1s;
+        white-space: normal; 
+        line-height: 1.2; 
+        word-break: break-word; 
+        padding: 5px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    #spin:hover:not(:disabled) {
+        background-color: #264653; 
+        transform: translate(-50%,-50%) scale(1.05);
+    }
+    
+    #spin:active:not(:disabled) {
+        transform: translate(-50%,-50%) scale(0.95);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    #spin:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+    
+    /* --- ESTILOS DE PIE DE PÁGINA (FOOTER) --- */
+
+    footer {
+        width: 100%;
+        background-color: #222; 
+        color: #e5e7eb; 
+        padding: 30px 20px; 
+        text-align: center;
+        font-size: 0.9rem; 
+        line-height: 1.6; 
+        border-top: 1px solid #444; 
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 20px; 
+    }
+
+    .social-icons a {
+        color: #fff;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: #e76f51; 
+        transform: scale(1.2);
+    }
+    
+</style>
+</head>
+<body>
+    <!-- ENCABEZADO (HEADER) -->
+    <header class="navbar" id="main-header">
+        <div class="navbar-content">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="img/logo.jpeg" 
+                     alt="Logo Medicoaching">
+    
+            </div>
+
+            <!-- Nuevo contenedor para el centrado del menú -->
+            <div class="nav-middle">
+                <!-- Menú de navegación (CENTRADO) -->
+                <nav class="nav-links-inner">
+                    <a href="index.html">Inicio</a>
+                    <a href="cursos.html">Cursos</a>
+                    <a href="nosotros.html">Nosotros</a>
+                </nav>
+            </div>
+
+            <!-- Botón Contáctenos -->
+            <div class="contact-button-container">
+                <a href="acomprar.html" class="contact-button">Nuestro servicio →</a>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <!-- CONTENIDO PRINCIPAL: RULETA -->
+    <main class="main-content">
+        <div class="ruleta-wrapper">
+
+            <!-- La flecha (Arrow) -->
+            <span class="arrow"></span> 
+            
+            <!-- Contenedor de la Ruleta -->
+            <div class="container" id="ruleta-container">
+                <div class="sector one" data-label="🖐️ Aprende una seña" data-index="0">
+                    <span class="sector-label">🖐️ Aprende una seña</span>
+                </div>
+                <div class="sector two" data-label="💡 Pregunta sorpresa" data-index="1">
+                    <span class="sector-label">💡 Pregunta sorpresa</span>
+                </div>
+                <div class="sector three" data-label="💬 Dato curioso" data-index="2">
+                    <span class="sector-label">💬 Dato curioso</span>
+                </div>
+                <div class="sector four" data-label="📚 Mini clase" data-index="3">
+                    <span class="sector-label">📚 Mini clase</span>
+                </div>
+                <div class="sector five" data-label="🏅 Gana una medalla" data-index="4">
+                    <span class="sector-label">🏅 Gana una medalla</span>
+                </div>
+                <div class="sector six" data-label="🌎 Traducción rápida" data-index="5">
+                    <span class="sector-label">🌎 Traducción rápida</span>
+                </div>
+            </div>
+            
+            <!-- Botón de Giro -->
+            <button id="spin">Girar</button>
+        </div>
+
+        <!-- Contenido de relleno -->
+      
+    </main>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer>
+        <div class="footer-container">
+            
+            <p>
+                Medicoaching. Plataforma educativa para estudiantes de medicina.<br>
+                San Salvador, El Salvador, América Central. <br>
+                Todos los derechos reservados.
+            </p>
+
+            <p>© 2025</p>
+
+            <p>Un proyecto académico de <strong>Medicoaching</strong></p>
+
+            <div class="social-icons">
+
+                <!-- Enlace a Instagram -->
+                <a href="https://www.instagram.com/medicoaching_?igsh=eGw0dmx6c2ZpZTN3" target="_blank" aria-label="Instagram">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+                        <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124.71-41a54,54,0,0,0-30.6-30.6C296.78,124,224,124,224,124s-72.78,0-94.11,6.41a54,54,0,0,0-30.6,30.6C93,145.22,93,224,93,224s0,78.78,6.41,100.11a54,54,0,0,0,30.6,30.6C151.22,356,224,356,224,356s72.78,0,94.11-6.41a54,54,0,0,0,30.6-30.6C355,302.78,355,224,355,224S355,145.22,348.71,161ZM224,293a69,69,0,1,1,69-69A69,69,0,0,1,224,293Zm74-125a16,16,0,1,1,16-16A16,16,0,0,1,298,168Z"/>
+                    </svg>
+                </a>
+
+                <!-- Enlace a Facebook -->
+                <a href="https://www.facebook.com/p/Medicoaching-61558492209594/?ref=xav_pl_fb_external_link_android&wtsid=rdr_0MBSfcFRv2QpUey88#" target="_blank" aria-label="Facebook">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 320 512">
+                        <path d="M279.14 288l14.22-92.66h-88.91V138.38c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.35 0 265.36 0c-73.61 0-121.36 44.38-121.36 124.72v70.62H97.66V288h46.34v224h92.66V288z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+// --- Lógica del Encabezado Ocultable (Scroll Direction) ---
+
+const mainHeader = document.getElementById("main-header");
+let lastScrollY = window.scrollY;
+
+// Escuchar el evento de scroll en la ventana
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    // Si el usuario se desplaza hacia abajo Y ha bajado más de 100px (para evitar que se oculte inmediatamente)
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling Down: Esconder el header
+        mainHeader.classList.add("hidden");
+    } 
+    // Si el usuario se desplaza hacia arriba O está cerca de la parte superior (menos de 100px)
+    else if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        // Scrolling Up: Mostrar el header
+        mainHeader.classList.remove("hidden");
+    }
+
+    // Actualizar la última posición de scroll
+    lastScrollY = currentScrollY;
+});
+
+
+// --- Lógica de la Ruleta ---
+const ruletaContainer = document.getElementById("ruleta-container");
+const btn = document.getElementById("spin");
+
+const sectores = [
+  { label: "🖐️ Aprende una seña" },
+  { label: "💡 Pregunta sorpresa" },
+  { label: "💬 Dato curioso" },
+  { label: "📚 Mini clase" },
+  { label: "🏅 Gana una medalla" },
+  { label: "🌎 Traducción rápida" }
+];
+
+const numSectores = sectores.length;
+const anguloSector = 360 / numSectores; // 60 grados
+let rotacionActual = 0;
+
+// Función para corregir la orientación del texto
+function ajustarTexto() {
+    const labels = document.querySelectorAll('.sector-label');
+    labels.forEach((label, index) => {
+        // Los sectores 2, 3 y 4 están en la mitad inferior y su texto aparecería de cabeza
+        if (index >= 2 && index <= 4) {
+            // Rotación radial (90) + Volteo (180) = 270 grados
+            label.style.transform = 'rotate(270deg)'; 
+        } else {
+            // Rotación radial de 90 grados
+            label.style.transform = 'rotate(90deg)'; 
+        }
+    });
+}
+ajustarTexto(); // Ejecutar al inicio
+
+btn.onclick = function () {
+  btn.disabled = true;
+  btn.textContent = "¡Girando!";
+
+  // Genera un número aleatorio de vueltas (entre 5 y 8) y rotación extra
+  const vueltas = 8 + Math.random() * 3;
+  const rotacionExtra = Math.random() * 360;
+  const nuevaRotacion = rotacionActual + (vueltas * 360) + rotacionExtra;
+
+  ruletaContainer.style.transition = "transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)";
+  ruletaContainer.style.transform = `rotate(${nuevaRotacion}deg)`;
+
+  setTimeout(() => {
+    // Cálculo de la rotación final y actualización de rotacionActual
+    const rotacionFinal = nuevaRotacion % 360;
+    rotacionActual = rotacionFinal;
+
+    // Ajuste de la posición final para que no salte al reiniciar el giro
+    ruletaContainer.style.transition = 'none';
+    ruletaContainer.style.transform = `rotate(${rotacionActual}deg)`;
+    
+    // Restaurar la transición para el siguiente giro
+    setTimeout(() => {
+        ruletaContainer.style.transition = 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)';
+    }, 50);
+
+    // --- LÓGICA DE CÁLCULO DEL GANADOR (CORREGIDA) ---
+    // 1. Calcular el ángulo en la ruleta estacionaria donde aterrizó el puntero (0-360, sentido horario)
+    //    Si la ruleta rotó 60 grados, el puntero está apuntando a la posición de 300 grados en la ruleta estacionaria (360-60).
+    let anguloGanador = (360 - (rotacionActual % 360)) % 360; 
+
+    // 2. Aplicar un desplazamiento (media sección: 30 grados) a este ángulo. 
+    //    Esto mueve el límite de 0/360 grados al centro de un sector temporal, 
+    //    permitiendo que Math.floor funcione consistentemente para todos los sectores.
+    const medioSector = anguloSector / 2; // 30 grados
+    anguloGanador = (anguloGanador + medioSector) % 360; 
+
+    // 3. Determinar el índice del sector (0-5) usando división entera (Math.floor).
+    let indiceGanador = Math.floor(anguloGanador / anguloSector);
+    // --- FIN LÓGICA DE CÁLCULO ---
+    
+    // Si por alguna razón de coma flotante el índice llega a ser 6, lo forzamos al último sector (5).
+    if (indiceGanador >= numSectores) {
+        indiceGanador = numSectores - 1;
+    }
+    
+    const premio = sectores[indiceGanador].label;
+
+    // Mostrar mensaje emergente con el resultado (MODAL)
+    showResultModal("🎉 ¡Te ha tocado: " + premio + "!");
+
+  }, 5000);
+};
+
+// --- Implementación de Modal Personalizado (Reemplazando alert()) ---
+
+function showResultModal(message) {
+    const modalStyle = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        font-family: 'Inter', sans-serif;
+    `;
+    
+    const contentStyle = `
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 90%;
+        width: 400px;
+    `;
+
+    const messageHtml = `
+        <h2 style="color: #2a9d8f; margin-bottom: 20px;">¡Felicidades!</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">${message}</p>
+        <button id="modal-close" style="
+            background-color: #e76f51;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        ">¡Entendido!</button>
+    `;
+
+    const modal = document.createElement('div');
+    modal.setAttribute('style', modalStyle);
+    modal.innerHTML = `<div style="${contentStyle}">${messageHtml}</div>`;
+    
+    document.body.appendChild(modal);
+
+    document.getElementById('modal-close').onclick = function() {
+        document.body.removeChild(modal);
+        btn.textContent = "Girar";
+        btn.disabled = false;
+    };
+}
+
+// --- Fin de Implementación de Modal Personalizado ---
+</script>
+</body>
+</html>

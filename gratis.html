@@ -1,0 +1,338 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento HTML5 -->
+<html lang="es"> <!-- Lenguaje del documento: Español -->
+<head>
+  <meta charset="UTF-8" /> <!-- Codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Responsive design -->
+  <title>Módulo de Inglés Básico (Gratuito)</title> <!-- Título en la pestaña del navegador -->
+
+  <!-- Estilos CSS internos -->
+  <style>
+    /* ----- ESTILOS GENERALES ----- */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8fafc; /* Fondo gris claro */
+      color: #0f172a; /* Color de texto oscuro */
+    }
+
+    /* ----- BARRA DE NAVEGACIÓN ----- */
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 40px; /* Altura del logo */
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem; /* Espacio entre enlaces */
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 500;
+    }
+
+    .nav-button a {
+      padding: 0.5rem 1rem;
+      background-color: #1e40af; /* Azul */
+      color: white;
+      border-radius: 9999px; /* Totalmente redondeado */
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-button a:hover {
+      background-color: #374ea1; /* Azul más oscuro al pasar el mouse */
+    }
+
+    /* ----- ENCABEZADO PRINCIPAL ----- */
+    header {
+      background-color: #0f172a; /* Azul oscuro */
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* ----- CONTENEDOR DE TARJETAS DEL MÓDULO ----- */
+    .modulo-grid {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ----- TARJETA INDIVIDUAL ----- */
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra al pasar el mouse */
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      color: #1e3a8a; /* Azul fuerte */
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #334155;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul {
+      padding-left: 1.25rem;
+      color: #334155;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .card ul li {
+      margin-bottom: 0.5rem;
+    }
+    /*precio del paquete*/
+    .precio-paquete {
+  background-color: #ffffff;
+  color: #0f172a;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 3rem auto;
+  max-width: 600px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+
+
+    /* ----- SECCIÓN DE VIDEO ----- */
+    .video-section {
+      text-align: center;
+      padding: 2rem 1rem 4rem;
+      background-color: #e2e8f0;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-section h2 {
+      color: #1e293b;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-section video {
+      max-width: 600px;
+      width: 90%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ----- RESPONSIVE PARA MÓVILES ----- */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .card h2 {
+        font-size: 1.1rem;
+      }
+      .modulo-grid {
+        padding: 1rem;
+      }
+    }
+
+    /* ----- PIE DE PÁGINA ----- */
+    footer {
+      background-color: #222;
+      color: #e5e7eb;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-top: 1px solid #444;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ff6b6b;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+  <nav>
+    <div class="nav-logo">
+      <img src="img/logo.jpeg" height="78" width="78" alt="Logo Medicoaching" />
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="nosotros.html">Sobre nosotros</a>
+    </div>
+    <div class="nav-button">
+      <a href="acomprar.html">Adquiera su servicio</a>
+    </div>
+  </nav>
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <header>
+    <h1>MÓDULO DE INGLÉS BÁSICO (GRATUITO)</h1>
+    <p class="subtitle">
+      Este módulo está dirigido a estudiantes sin conocimientos previos de inglés o con un nivel
+      muy básico. Es el paso cero para que cualquier estudiante se sienta cómodo y más
+      familiarizado con frases simples, sonidos básicos y estructuras útiles para comenzar a
+      entender inglés en un entorno de salud.
+    </p>
+  </header>
+
+  <!-- MÓDULO NIVEL BÁSICO -->
+  <div class="modulo-grid">
+    <div class="card">
+      <img src="img/enseñar.jpeg" alt="Nivel Básico Inglés Médico" />
+      <h2>🔰 NIVEL 1 – BÁSICO</h2>
+      <p>"Comienza tu aprendizaje de inglés en salud con confianza"</p>
+      <ul>
+        <li><!-- Abecedario con vocabulario médico básico para familiarizarse con letras y sonidos -->
+          El abecedario médico
+        </li>
+        <li><!-- Frases de saludo formales e informales para interacción básica -->
+          Saludos formales e informales
+        </li>
+        <li><!-- Partes del cuerpo humano con vocabulario sencillo -->
+          Partes del cuerpo básicas
+        </li>
+        <li><!-- Verbos comunes usados en salud para frases simples -->
+          Verbos simples y útiles
+        </li>
+        <li><!-- Números, decir horas y días para comunicación básica -->
+          Números, horas y días
+        </li>
+        <li><!-- Colores y formas comunes que se usan en descripciones médicas -->
+          Colores y formas básicas
+        </li>
+        <li><!-- Cómo hacer preguntas básicas en situaciones médicas -->
+          Preguntas básicas en contexto médico
+        </li>
+        <li><!-- Vocabulario útil para el entorno hospitalario -->
+          Vocabulario útil de hospital
+        </li>
+        <li><!-- Pronombres personales y posesivos para construir oraciones simples -->
+          Pronombres personales y posesivos básicos
+        </li>
+        <li><!-- Adjetivos para describir síntomas y condiciones -->
+          Adjetivos para describir síntomas
+        </li>
+        <li><!-- Diálogos cortos para practicar situaciones reales -->
+          Diálogos breves
+        </li>
+      </ul>
+    </div>
+  </div>
+<!-- Precio del paquete -->
+  
+
+
+  <!-- SECCIÓN DE VIDEO -->
+  <section class="video-section">
+    <h2>Demostración de video del nivel básico</h2>
+    <video controls>
+      <source src="img/inglesb.mp4" type="video/mp4" />
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="footer-container">
+      <!-- Información general -->
+      <p>
+        Mediocoaching. Plataforma educativa para estudiantes de medicina.<br>
+        San Salvador, El Salvador, América Central.<br>
+        Todos los derechos reservados.
+      </p>
+      <!-- Año y créditos -->
+      <p>© 2025</p>
+      <p>Un proyecto académico de <strong>Mediocoaching</strong></p>
+      <!-- Redes sociales -->
+      <div class="social-icons">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/medicoaching_?igsh=eGw0dmx6c2ZpZTN3" target="_blank" aria-label="Instagram">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+            <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124.71-41a54,54,0,0,0-30.6-30.6C296.78,124,224,124,224,124s-72.78,0-94.11,6.41a54,54,0,0,0-30.6,30.6C93,145.22,93,224,93,224s0,78.78,6.41,100.11a54,54,0,0,0,30.6,30.6C151.22,356,224,356,224,356s72.78,0,94.11-6.41a54,54,0,0,0,30.6-30.6C355,302.78,355,224,355,224S355,145.22,348.71,161ZM224,293a69,69,0,1,1,69-69A69,69,0,0,1,224,293Zm74-125a16,16,0,1,1,16-16A16,16,0,0,1,298,168Z"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/p/Medicoaching-61558492209594" target="_blank" aria-label="Facebook">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 320 512">
+            <path d="M279.14 288l14.22-92.66h-88.91V138.38c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.35 0 265.36 0c-73.61 0-121.36 44.38-121.36 124.72v70.62H97.66V288h46.34v224h92.66V288z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

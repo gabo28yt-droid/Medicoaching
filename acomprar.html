@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donaciones</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{background:#d9d9d9;padding:20px}
+.container{max-width:1200px;margin:auto}
+.header{background:#0c7f3c;color:#fff;text-align:center;padding:24px;font-size:38px;font-weight:700;border-radius:8px;position:relative}
+.menu{position:absolute;left:20px;top:22px;font-size:34px}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.box{background:#fff;border:2px solid #222;border-radius:14px;padding:12px}
+label{display:block;font-weight:700;margin-bottom:8px;text-align:center}
+select,input{width:100%;padding:10px;border:1px solid #999;border-radius:10px;font-size:16px}
+.empty{height:500px}
+@media(max-width:900px){.row{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><div class="menu">☰</div>Donaciones</div>
+<div class="row">
+<div class="box"><label>Ubicación</label><select>
+<option>Ahuachapán</option><option>Santa Ana</option><option>Sonsonate</option><option>Chalatenango</option><option>La Libertad</option><option>San Salvador</option><option>Cuscatlán</option><option>La Paz</option><option>Cabañas</option><option>San Vicente</option><option>Usulután</option><option>San Miguel</option><option>Morazán</option><option>La Unión</option>
+</select></div>
+<div class="box"><label>Tipo</label><select><option>Verduras</option><option>Frutas</option></select></div>
+<div class="box"><label>Fecha</label><input type="date"></div>
+<div class="box"><label>Cantidad</label><input type="number" min="0" placeholder="0"></div>
+</div>
+<div class="empty"></div>
+</div>
+</body>
+</html>

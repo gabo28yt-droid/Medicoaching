@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>farmacología</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 500;
+    }
+
+    .nav-button a {
+      padding: 0.5rem 1rem;
+      background-color: #1e40af;
+      color: white;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    header {
+      background-color: #0f172a;
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modulo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #334155;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul {
+      padding-left: 1.25rem;
+      color: #334155;
+      font-size: 0.9rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.5rem;
+    }
+    .precio-paquete {
+  background-color: #ffffff;
+  color: #0f172a;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 3rem auto;
+  max-width: 600px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+.resources-section {
+      text-align: center;
+      padding: 2rem;
+      background-color: #e2e8f0;
+    }
+
+    .resources-section h2 {
+      color: #1e293b;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .resource-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1.25rem;
+      background-color: #1e40af;
+      color: #ffffff;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .resources-section audio {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .video-section {
+      text-align: center;
+      padding: 2rem;
+      background-color: #e2e8f0;
+    }
+
+    .video-section h2 {
+      color: #1e293b;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-section video {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+  background-color: #222; /* Fondo oscuro, similar al de UES */
+  color: #e5e7eb; /* Color de texto claro */
+  padding: 30px 20px; /* Espaciado interior */
+  text-align: center;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  line-height: 1.6;  /* Separación entre líneas para mejor legibilidad */
+  border-top: 1px solid #444; /* Línea superior sutil como división */
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espacio entre elementos */
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px; /* Separación entre los íconos */
+}
+
+/* Estilo de los íconos SVG */
+.social-icons a {
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animación cuando pasas el mouse sobre un ícono */
+.social-icons a:hover {
+  color: #ff6b6b; /* Color rojo coral al pasar el mouse */
+  transform: scale(1.2); /* Efecto de aumento */
+}
+
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">
+      <img src="img/logo.jpeg" height="78" width="78">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="nosotros.html">Sobre nosotros</a>
+    </div>
+    <div class="nav-button">
+      <a href="acomprar.html">Adquiera su servicio</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Módulo de Farmacología Médica en Inglés</h1>
+    <p>El objetivo general de este módulo es enseñar a los estudiantes y profesionales de salud a usar, comprender y comunicar correctamente el lenguaje técnico farmacológico en inglés, enfocado en situaciones reales.</p>
+  </header>
+
+  <div class="modulo-grid">
+    <div class="card">
+      <img src="img/far1 (1).jpeg" alt="Nivel Básico Farmacología">
+      <h2>💊 Nivel 1: Básico</h2>
+      <p>"Aprender a hablar de medicamentos sin complicaciones"</p>
+      <ul>
+        <li>Vocabulario general de medicamentos</li>
+        <li>Formas farmacéuticas</li>
+        <li>Frases comunes para dar instrucciones</li>
+        <li>Cómo leer etiquetas básicas</li>
+        <li>Verbos de uso clínico básico</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="img/far1 (2).jpeg" alt="Nivel Intermedio Farmacología">
+      <h2>⚕️ Nivel 2: Intermedio</h2>
+      <p>"Hablar como un profesional que sabe lo que dice"</p>
+      <ul>
+        <li>Clases de medicamentos</li>
+        <li>Reacciones adversas comunes</li>
+        <li>Indicaciones y contraindicaciones</li>
+        <li>Interacciones comunes</li>
+        <li>Cómo traducir recetas simples</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="img/far1 (3).jpeg" alt="Nivel Superior Farmacología">
+      <h2>🧠 Nivel 3: Superior</h2>
+      <p>"Expresarte con seguridad en ambientes profesionales y situaciones clínicas complejas"</p>
+      <ul>
+        <li>Presentación profesional de tratamientos</li>
+        <li>Cómo hablar de efectos secundarios raros</li>
+        <li>Comunicación técnica en emergencias con medicamentos</li>
+        <li>Preguntas al paciente sobre medicamentos</li>
+        <li>Comprensión auditiva de instrucciones médicas reales</li>
+      </ul>
+    </div>
+  </div>
+<div class="resources-section">
+    <h2>Audio del Nivel Básico</h2>
+    <audio controls>
+  <source src="audios/audio4.ogg" type="audio/ogg">
+  Tu navegador no soporta la reproducción de audio.
+</audio>
+  </div>
+
+  <div class="video-section">
+    <h2>Video del Nivel Básico</h2>
+    <video controls>
+      <source src="img//farma.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </div>
+
+<footer>
+  <div class="footer-container">
+    
+    <!-- Información institucional de Medicoaching -->
+    <p>
+      Mediocoaching. Plataforma educativa para estudiantes de medicina.<br>
+      San Salvador, El Salvador, América Central. <br>
+      Todos los derechos reservados.
+    </p>
+
+    <!-- Año actual o copyright -->
+    <p>© 2025</p>
+
+    <!-- Línea de crédito o autor del sitio -->
+    <p>Un proyecto académico de <strong>Mediocoaching</strong></p>
+
+    <!-- Íconos de redes sociales (Instagram y Facebook) -->
+    <div class="social-icons">
+
+      <!-- Enlace a Instagram -->
+      <a href="https://www.instagram.com/medicoaching_?igsh=eGw0dmx6c2ZpZTN3" target="_blank" aria-label="Instagram">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512">
+          <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124.71-41a54,54,0,0,0-30.6-30.6C296.78,124,224,124,224,124s-72.78,0-94.11,6.41a54,54,0,0,0-30.6,30.6C93,145.22,93,224,93,224s0,78.78,6.41,100.11a54,54,0,0,0,30.6,30.6C151.22,356,224,356,224,356s72.78,0,94.11-6.41a54,54,0,0,0,30.6-30.6C355,302.78,355,224,355,224S355,145.22,348.71,161ZM224,293a69,69,0,1,1,69-69A69,69,0,0,1,224,293Zm74-125a16,16,0,1,1,16-16A16,16,0,0,1,298,168Z"/>
+        </svg>
+      </a>
+
+      <!-- Enlace a Facebook -->
+      <a href="https://www.facebook.com/p/Medicoaching-61558492209594/?ref=xav_pl_fb_external_link_android&wtsid=rdr_0MBSfcFRv2QpUey88#" target="_blank" aria-label="Facebook">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 320 512">
+          <path d="M279.14 288l14.22-92.66h-88.91V138.38c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.35 0 265.36 0c-73.61 0-121.36 44.38-121.36 124.72v70.62H97.66V288h46.34v224h92.66V288z"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
